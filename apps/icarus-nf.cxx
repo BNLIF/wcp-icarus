@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
     cout << em("open file") << std::endl;
     
-    int n_u = 33;
+    // int n_u = 33;
     
     double lambda = 0.05;//0.05; // regularization strength ...
     //    double lambda1 = 0.05*400;//0.05; // regularization strength ...
@@ -280,8 +280,8 @@ int main(int argc, char* argv[])
     file2->Write();
     file2->Close();
 
-
-
+    file3->Close();
+    file->Close();
     
   }
 }

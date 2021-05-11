@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
     
     TString outfile = argv[2];
     
-    int nticks = 4096;
+    // int nticks = 4096;
 
     TH2F **hu = new TH2F*[4];
     TH2F **hv = new TH2F*[4];
@@ -201,6 +201,8 @@ int main(int argc, char* argv[])
     
     file2->Write();
     file2->Close();
+
+    file->Close();
   } 
   
   return 0;

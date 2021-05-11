@@ -25,12 +25,9 @@ int main(int argc, char* argv[])
     int nticks = 4096;
 
     int neve = atoi(argv[3]);
-
     const char* tpath = "/Event/Sim";
     TTree* tree = dynamic_cast<TTree*>(file->Get(tpath));
-    
     tree->SetBranchStatus("*",0);
-
     int event_no, run_no, subrun_no;
     tree->SetBranchStatus("eventNo",1);
     tree->SetBranchAddress("eventNo" , &event_no);
@@ -38,7 +35,6 @@ int main(int argc, char* argv[])
     tree->SetBranchAddress("runNo"   , &run_no);
     tree->SetBranchStatus("subRunNo",1);
     tree->SetBranchAddress("subRunNo", &subrun_no);
-    
     std::vector<int> *channelid = new std::vector<int>;
     TClonesArray* esignal = new TClonesArray;
           
@@ -57,7 +53,7 @@ int main(int argc, char* argv[])
 
     tree->GetEntry(neve);
 
-    int nchannels = channelid->size();
+    size_t nchannels = channelid->size();
     std::map<int, TH1F*> map_ch_hist;
     
     for (size_t ind=0; ind < nchannels; ++ind) {
